@@ -1,0 +1,101 @@
+﻿@page "/Employeers/search"
+@inject IEmployeeService repositorio
+@inject NavigationManager navigationManager
+
+<h3>Search Employee</h3>
+
+<div class="form-inline">
+    <div class="form-group mb-2">
+        <label for="titulo" class="sr-only">Título</label>
+        <input @bind-value="idEmployee" @bind-value:event="oninput"
+               type="text" class="form-control" id="idEmployee" placeholder="Employee Id" />
+    </div>
+
+    <button type="button" class="btn btn-primary mb-2 mx-sm-3" @onclick="SearchEmployeeBtn">Search</button>
+    <button type="button" class="btn btn-danger mb-2" @onclick="LimpiarOnClick">Clear</button>
+
+    <ListadoGenerico Listado="Employees">
+        <HayRegistrosCompleto>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Role Name</th>
+                            <th>Role Description</th>
+                            <th>Contract Type</th>
+                            <th>Hourly Salary</th>
+                            <th>Monthly Salary</th>
+                            <th>Annual Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var employee in Employees)
+                        {
+                            <tr>
+                                <td>
+                                    @employee.Id
+                                </td>
+                                <td>
+                                    @employee.Name
+                                </td>
+                                <td>
+                                    @employee.RoleName
+                                </td>
+                                <td>
+                                    @employee.RoleDescription
+                                </td>
+                                <td>
+                                    @employee.ContractTypeName
+                                </td>
+                                <td>
+                                    $ @employee.HourlySalary
+                                </td>
+                                <td>
+                                    $ @employee.MonthlySalary
+                                </td>
+                                <td>
+                                    $ @employee.AnnualSalary
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </HayRegistrosCompleto>
+    </ListadoGenerico>
+
+</div>
+
+@code {
+    string idEmployee = "";
+    //string url = "http://masglobaltestapi.azurewebsites.net/api/Employees";
+
+    List<Employee> Employees;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Cargar();
+    }
+
+    private async Task Cargar()
+    {
+        var httpResponse = await repositorio.GetEmployees(idEmployee);
+        Employees = httpResponse.ToList();
+    }
+
+    private async Task SearchEmployeeBtn()
+    {
+        navigationManager.NavigateTo("/Employeers/search");
+        await Cargar();
+    }
+
+    private async Task LimpiarOnClick()
+    {
+        idEmployee = "";
+        await Cargar();
+    }
+
+}
