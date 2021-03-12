@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employees", "Employees.csproj", "{B2A69246-74FE-41E2-8AC3-BB85E13B356C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Employees", "Employees.csproj", "{B2A69246-74FE-41E2-8AC3-BB85E13B356C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "..\Data\Data.csproj", "{1C8D8012-2261-4D6C-ACD3-EAF125885FB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "..\Data\Data.csproj", "{1C8D8012-2261-4D6C-ACD3-EAF125885FB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "..\Business\Business.csproj", "{C8E7C964-C294-4BB8-BEEA-97F1EE315C71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "..\Business\Business.csproj", "{C8E7C964-C294-4BB8-BEEA-97F1EE315C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "..\Test\Test.csproj", "{C685E332-8AE4-420E-B47D-64172C404A40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{C8E7C964-C294-4BB8-BEEA-97F1EE315C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8E7C964-C294-4BB8-BEEA-97F1EE315C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8E7C964-C294-4BB8-BEEA-97F1EE315C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C685E332-8AE4-420E-B47D-64172C404A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C685E332-8AE4-420E-B47D-64172C404A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C685E332-8AE4-420E-B47D-64172C404A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C685E332-8AE4-420E-B47D-64172C404A40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
